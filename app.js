@@ -92,6 +92,10 @@ app.use((req, res, next) => {
 //   let registeredUser = await User.register(fakeUser, "Helloworld");
 //   res.send(registeredUser);
 // });
+// Redirect the root path "/" to "/listings"
+app.get('/', (req, res) => {
+  res.redirect('/listings');
+});
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
